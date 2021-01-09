@@ -29,4 +29,7 @@ public class RuntimeException {
             }
         }
     }
+    public void sayHello(){
+        System.out.println("hello man");
+    }
 }
