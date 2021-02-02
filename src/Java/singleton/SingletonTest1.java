@@ -16,12 +16,15 @@ public class SingletonTest1 {
 }
 
 class Bank {
-    private Bank() {
+   private Bank() {
 
-    }
-    private static Bank bank = new Bank();
+   }
+   private static Bank bank;
 
-    public static Bank getInstance(){
-        return bank;
-    }
+   public static Bank getInstance(){
+       if(bank == null){
+           bank = new Bank();
+       }
+       return bank;
+   }
 }
