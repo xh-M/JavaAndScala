@@ -17,9 +17,9 @@ class Number implements Runnable{
 
             synchronized (this) {
                 notify();
-                if (number <= 10){
+                if (number <= 50){
                     try {
-                        sleep(1000);
+                        sleep(50);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
