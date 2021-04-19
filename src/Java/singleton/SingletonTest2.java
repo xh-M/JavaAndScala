@@ -13,7 +13,9 @@ public class SingletonTest2 {
 }
 
 class Singleton {
-    private Singleton(){}
+    private Singleton(){
+
+    }
 
     private static volatile Singleton singleton;
 

@@ -2,21 +2,20 @@ package Java.thread.pool;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadPoolExecutor;
 
 /**
- * 创建线程的方式四: 使用线程池
- *
  * @Auther: XianghuiMeng
- * @Date: 2020/12/5
+ * @Date: 2021/2/13
  */
 
-class NumberThread implements Runnable{
+class ThreadPoolTest implements Runnable{
 
     @Override
     public void run() {
-        for (int i = 1; i <= 100; i++) {
-            if (i % 2 == 0){
-                System.out.println(i);
+        for (int i = 0; i < 100; i++) {
+            if(i % 2 == 0){
+                System.out.println(Thread.currentThread().getName() + " : " + i);
             }
         }
     }
@@ -24,11 +23,13 @@ class NumberThread implements Runnable{
 
 public class ThreadPool {
     public static void main(String[] args) {
-        ExecutorService service = Executors.newFixedThreadPool(10);
 
-        service.execute(new NumberThread());//适用于Runnable
-        
-//        service.submit();//适用于Callable
+        //1.提供指定数量的线程池
+        ThreadPoolExecutor service = (ThreadPoolExecutor) Executors.newFixedThreadPool(10);
+        //2.执行指定的线程操作. 需要提供实现 Runnable接口 或Callable接口的对象
+        service.execute(new ThreadPoolTest());//适用于Runnable接口
+//        service.submit(Callable callable);  //适用于Callable接口
+        //关闭连接池
         service.shutdown();
     }
 }
