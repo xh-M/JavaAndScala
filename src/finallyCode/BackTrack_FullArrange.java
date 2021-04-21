@@ -1,4 +1,4 @@
-package arithmetic;
+package finallyCode;
 
 import java.util.*;
 
@@ -6,7 +6,7 @@ import java.util.*;
  * @Auther: XianghuiMeng
  * @Date: 2021/4/19
  */
-public class BackTrack {
+public class BackTrack_FullArrange {
     public static void main(String[] args) {
         String str = "cba";
         Permutation(str);
@@ -23,6 +23,9 @@ public class BackTrack {
     }
 
     private static void backTrack(char[] chars, LinkedList<String> track) {
+        for(String s : track){
+            System.out.println(s);
+        }
         if(track.size() == chars.length){
             StringBuilder sb = new StringBuilder();
             for (int i = 0; i < track.size(); i++) {

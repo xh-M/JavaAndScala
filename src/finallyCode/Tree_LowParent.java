@@ -25,8 +25,8 @@ public class Tree_LowParent {
         }
         TreeNode[] node1Parents = findParent(root, node11);
         TreeNode[] node2Parents = findParent(root, node22);
-        System.out.println(Arrays.toString(node1Parents));
-        System.out.println(Arrays.toString(node2Parents));
+//        System.out.println(Arrays.toString(node1Parents));
+//        System.out.println(Arrays.toString(node2Parents));
         for (int i = node1Parents.length - 1; i >= 0 ; i--) {
             for (int j = node2Parents.length - 1; j >= 0 ; j--) {
                 if(node1Parents[i] == node2Parents[j]){
